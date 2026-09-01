@@ -8,6 +8,7 @@ const ALLOWED_DOMAIN = "especiallyyours.com";
 const SESSION_MAX_AGE_SECONDS = 8 * 60 * 60; // 8-hour idle timeout per PRD 9.7
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
+  trustHost: true,
   session: { strategy: "jwt", maxAge: SESSION_MAX_AGE_SECONDS },
   jwt: { maxAge: SESSION_MAX_AGE_SECONDS },
   pages: { signIn: "/login" },

@@ -3,7 +3,9 @@ import fs from "node:fs";
 import path from "node:path";
 import { SCHEMA_SQL } from "./schema";
 
-const DATA_DIR = path.join(process.cwd(), "data");
+const DATA_DIR = process.env.VERCEL
+  ? path.join("/tmp", "elms-data")
+  : path.join(process.cwd(), "data");
 const DB_PATH = path.join(DATA_DIR, "elms.db");
 
 declare global {
